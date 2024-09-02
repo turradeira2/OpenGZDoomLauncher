@@ -1,13 +1,50 @@
+#region imports
 import tkinter as tk
+from tkinter import messagebox
+#endregion
+
+#region vars
+#endregion
 
 # Função que será chamada quando o botão for clicado
 def on_button_click():
-     label1.config(text="Você clicou no botão!")
+    label1.config(text="Você clicou no botão!")
+
+# Função para exibir a mensagem "Sobre"
+def show_about():
+    messagebox.showinfo("Sobre", "Este é um exemplo de aplicação Tkinter com menubar.")
+
+# Função para abrir uma nova janela
+def open_new_window():
+    new_window = tk.Toplevel(root)
+    new_window.title("Nova Janela")
+    new_window.geometry("200x150")
+    tk.Label(new_window, text="Esta é uma nova janela.").pack(pady=20)
+
+# Função para sair da aplicação
+def quit_app():
+    root.quit()
 
 # Cria a janela principal
 root = tk.Tk()
 root.title("Janela com Containers Verticais")
 root.geometry("400x300")
+
+#region menubar
+menubar = tk.Menu(root)
+
+filemenu = tk.Menu(menubar, tearoff=0)
+filemenu.add_command(label="Nova Janela", command=open_new_window)  # Corrigido para "label"
+filemenu.add_separator()
+filemenu.add_command(label="Sair", command=quit_app)  # Corrigido para "label"
+menubar.add_cascade(label="Arquivo", menu=filemenu)
+
+helpmenu = tk.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="Sobre", command=show_about)  # Corrigido para "label"
+menubar.add_cascade(label="Ajuda", menu=helpmenu)
+
+root.config(menu=menubar)
+#endregion
 
 # Cria o primeiro container vertical
 frame1 = tk.Frame(root, bg="lightblue", padx=10, pady=10)
