@@ -1,9 +1,13 @@
+#region imports
 import tkinter as tk
 from tkinter import messagebox
 import platform
+#endregion
 
+#region vars
 os_name = platform.system()
 print(os_name)
+#endregion
 
 # Função que será chamada quando o botão for clicado
 def on_button_click():
