@@ -9,7 +9,7 @@ os_name = platform.system()
 print(os_name)
 #endregion
 
-# Função que será chamada quando o botão for clicado
+#region window functions
 def on_button_click():
     label1.config(text="Você clicou no botão!")
 
@@ -30,11 +30,13 @@ def open_new_window():
 # Função para sair da aplicação
 def quit_app():
     root.quit()
+#endregion
 
-# Configuração da janela principal
+#region root window
 root = tk.Tk()
 root.title("OpenGZDoomLauncher")
 root.geometry("600x400")
+#endregion
 
 #region menubar
 menubar = tk.Menu(root)
@@ -52,7 +54,7 @@ menubar.add_cascade(label="Ajuda", menu=helpmenu)
 root.config(menu=menubar)
 #endregion
 
-# Criação e configuração dos containers (frames)
+#region frames
 frame1 = tk.Frame(root, bg="lightblue", padx=10, pady=10)
 frame1.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
 
@@ -61,8 +63,9 @@ frame2.grid(row=0, column=1, padx=5, pady=5, sticky="nsew")
 
 frame3 = tk.Frame(root, bg="lightcoral", padx=10, pady=10)
 frame3.grid(row=0, column=2, padx=5, pady=5, sticky="nsew")
+#endregion
 
-# Adiciona widgets aos containers
+#region widgets
 label1 = tk.Label(frame1, text="Container 1", bg="lightblue")
 label1.grid(row=0, column=0, pady=10)
 
@@ -80,14 +83,14 @@ label3.grid(row=0, column=0, pady=10)
 
 button3 = tk.Button(frame3, text="Botão 3", command=on_button_click)
 button3.grid(row=1, column=0, pady=10)
+#endregion
 
-# Configura a expansão das colunas para redimensionamento proporcional
+#region grid config
 root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=2)
 root.grid_columnconfigure(2, weight=1)
+#endregion
 
-# Configura a expansão da linha para preencher a janela
 root.grid_rowconfigure(0, weight=1)
 
-# Inicia o loop principal do Tkinter
 root.mainloop()
