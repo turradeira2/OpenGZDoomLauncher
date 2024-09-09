@@ -55,8 +55,8 @@ root.config(menu=menubar)
 #endregion
 
 #region frames
-frame1 = tk.Frame(root, bg="lightblue", padx=10, pady=10)
-frame1.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
+wadframe = tk.Frame(root, bg="lightblue", padx=10, pady=10)
+wadframe.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
 
 frame2 = tk.Frame(root, bg="lightgreen", padx=10, pady=10)
 frame2.grid(row=0, column=1, padx=5, pady=5, sticky="nsew")
@@ -66,10 +66,10 @@ frame3.grid(row=0, column=2, padx=5, pady=5, sticky="nsew")
 #endregion
 
 #region widgets
-label1 = tk.Label(frame1, text="Container 1", bg="lightblue")
+label1 = tk.Label(wadframe, text="Container 1", bg="lightblue")
 label1.grid(row=0, column=0, pady=10)
 
-button1 = tk.Button(frame1, text="Botão 1", command=on_button_click)
+button1 = tk.Button(wadframe, text="Botão 1", command=on_button_click)
 button1.grid(row=1, column=0, pady=10)
 
 label2 = tk.Label(frame2, text="Container 2", bg="lightgreen")
@@ -89,8 +89,8 @@ button3.grid(row=1, column=0, pady=10)
 root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=2)
 root.grid_columnconfigure(2, weight=1)
-#endregion
 
 root.grid_rowconfigure(0, weight=1)
+#endregion
 
 root.mainloop()
