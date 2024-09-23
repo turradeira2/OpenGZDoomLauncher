@@ -10,6 +10,7 @@ os_name = platform.system()
 print(os_name)
 #endregion
 
+
 #region window functions
 def on_button_click():
     label1.config(text="Você clicou no botão!")
